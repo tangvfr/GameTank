@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jeux De Tank</title>
+        <meta charset="utf-8">
+        <link href="index.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <script src="render.js"></script>
+        <script type="module" src="index.js"></script>
+        <canvas id="canvas"></canvas>
+        <div id="menu">
+            <div class="menuPan">
+                <div class="embed1 unselectable">Tank 1</div>
+                <div id="panColor1" class="panColor1">
+                    <canvas class="renderTank1" id="renderTank1"></canvas>
+                    <form class="all">
+                        <input class="tankColor1" type="color" id="tank1ColorCh" value="#777777">
+                        <input class="tankColor1" type="color" id="tank1ColorCo" value="#00BB00">
+                        <input class="tankColor1" type="color" id="tank1ColorCa" value="#009900">
+                    </form>
+                    <script>
+                        function renderTank1() {
+                            let tank1ColorCh = document.getElementById("tank1ColorCh").value;
+                            let tank1ColorCo = document.getElementById("tank1ColorCo").value;
+                            let tank1ColorCa = document.getElementById("tank1ColorCa").value;
+                            renderTank(tank1ColorCh, tank1ColorCo, tank1ColorCa, "renderTank1", 2);
+                         }
+    
+                        document.getElementById("tank1ColorCh").oninput = renderTank1;
+                        document.getElementById("tank1ColorCo").oninput = renderTank1;
+                        document.getElementById("tank1ColorCa").oninput = renderTank1;
+                        document.getElementById("panColor1").onresize = renderTank1;
+                        renderTank1();
+                    </script>
+                </div>
+                <div class="embed2 unselectable">Tank 2</div>
+                <div id="panColor2" class="panColor2">
+                    <canvas class="renderTank2" id="renderTank2"></canvas>
+                        <form class="all">
+                        <input class="tankColor2" type="color" id="tank2ColorCh" value="#FF0000">
+                        <input class="tankColor2" type="color" id="tank2ColorCo" value="#FFFFFF">
+                        <input class="tankColor2" type="color" id="tank2ColorCa" value="#FF9999">
+                    </form>
+                    <script>
+                        function renderTank2() {
+                            let tank2ColorCh = document.getElementById("tank2ColorCh").value;
+                            let tank2ColorCo = document.getElementById("tank2ColorCo").value;
+                            let tank2ColorCa = document.getElementById("tank2ColorCa").value;
+                            renderTank(tank2ColorCh, tank2ColorCo, tank2ColorCa, "renderTank2", 2);
+                        }
+                        
+                        document.getElementById("tank2ColorCh").oninput = renderTank2;
+                        document.getElementById("tank2ColorCo").oninput = renderTank2;
+                        document.getElementById("tank2ColorCa").oninput = renderTank2;
+                        document.getElementById("panColor2").onresize = renderTank2;
+                        renderTank2();
+                    </script>
+                </div>
+                <button class="startButton" id="startButton">Start Dual</button>
+                <img src="./img/banner.png" class="banner">
+                <div class="version">v1.2_beta</div>
+            </div>
+        </div>
+    </body>
+</html>
