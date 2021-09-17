@@ -1,0 +1,167 @@
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.all {
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.menuPan {
+    display: block;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background: yellow;
+}
+
+.tankColor1 {
+    display: block;
+    position: relative;
+    height: 18%;
+    width: 98%;
+    background: rgb(226, 173, 0);
+    border: 2px solid rgb(206, 158, 1);
+    margin: 0%;
+    padding: 0%;
+    left: 0%;
+    top: 2%;
+}
+
+.embed1 {
+    display: block;
+    position: absolute;
+    height: 2.5%;
+    width: 9%;
+    font-size: 1em;
+    text-align: center;
+    background: rgb(206, 158, 1);
+    border: 2px solid rgb(206, 158, 1);
+    color: whitesmoke;
+    margin: 0%;
+    padding: 0% 0.5% 0% 0.5%;
+    left: 2%;
+    top: 4%;
+}
+
+.panColor1 {
+    display: block;
+    position: absolute;
+    height: 30%;
+    width: 9%;
+    background: rgb(226, 173, 0);
+    border: 2px solid rgb(206, 158, 1);
+    margin: 0%;
+    padding: 0.5%;
+    left: 2%;
+    top: calc(4.5% + 1em);
+}
+
+.renderTank1 {
+    display: block;
+    position: relative;
+    background: rgb(226, 173, 0);
+    border: 2px solid rgb(206, 158, 1);
+    padding: 0.5%;
+    left: 0%;
+    top: 1%;
+    width: 96%;
+    height: 35%;
+}
+
+.tankColor2 {
+    display: block;
+    position: relative;
+    height: 18%;
+    width: 98%;
+    background: rgb(226, 173, 0);
+    border: 2px solid rgb(206, 158, 1);
+    margin: 0%;
+    padding: 0%;
+    left: 0%;
+    top: 2%;
+}
+
+.embed2 {
+    display: block;
+    position: absolute;
+    height: 2.5%;
+    width: 9%;
+    font-size: 1em;
+    text-align: center;
+    background: rgb(206, 158, 1);
+    border: 2px solid rgb(206, 158, 1);
+    color: whitesmoke;
+    margin: 0%;
+    padding: 0% 0.5% 0% 0.5%;
+    left: 88%;
+    top: 4%;
+}
+
+.panColor2 {
+    display: block;
+    position: absolute;
+    height: 30%;
+    width: 9%;
+    background: rgb(226, 173, 0);
+    border: 2px solid rgb(206, 158, 1);
+    margin: 0%;
+    padding: 0.5%;
+    left: 88%;
+    top: calc(4.5% + 1em);
+}
+
+.renderTank2 {
+    display: block;
+    position: relative;
+    background: rgb(226, 173, 0);
+    border: 2px solid rgb(206, 158, 1);
+    padding: 0.5%;
+    left: 0%;
+    top: 1%;
+    width: 96%;
+    height: 35%;
+}
+
+.startButton {
+    position: fixed;
+    color: #000000;
+    background: rgb(226, 173, 0);
+    border: 2px solid rgb(206, 158, 1);
+    font-size: 1em;
+    text-align: center;
+    left: 35%;
+    top: 65%;
+    height: 5%;
+    width: 30%;
+}
+
+.version {
+    position: fixed;
+    display: block;
+    color: #000000;
+    font-size: 1em;
+    text-align: center;
+    left: 1%;
+    top: calc(99% - 1em);
+    height: 0%;
+    width: 0%;
+}
+
+.banner {
+    position: fixed;
+    display: block;
+    left: 35%;
+    top: 35%;
+    height: 30%;
+    width: 30%;
+}
