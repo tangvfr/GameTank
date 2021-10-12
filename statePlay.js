@@ -132,6 +132,31 @@ class StatePlay extends GameState {
         }
     }
 
+    invertColor(hex) {
+        if (hex.indexOf('#') === 0) {
+            hex = hex.slice(1);
+        }
+        // convert 3-digit hex to 6-digits.
+        if (hex.length === 3) {
+            hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+        }
+        if (hex.length !== 6) {
+            throw new Error('Invalid HEX color.');
+        }
+        // invert color components
+        var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+            g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+            b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+        // pad each with zeros and return
+        return '#' + this.padZero(r) + this.padZero(g) + this.padZero(b);
+    }
+    
+    padZero(str, len) {
+        len = len || 2;
+        var zeros = new Array(len).join('0');
+        return (zeros + str).slice(-len);
+    }
+
     render(game, ctx) {
         ctx.fillStyle = this.map.background;
         ctx.fillRect(0, 0, game.width, game.height);
@@ -144,18 +169,41 @@ class StatePlay extends GameState {
                 val.render(ctx);
             }
         });
+        //bar scrore
+        game.ctx.font = "24px Georgia";
+        game.ctx.strokeStyle = "#000000";
+        let text2 = ""+this.score2;
+        game.ctx.fillStyle = this.tank2.colorCo;
+        game.ctx.fillText(text2, 814, 19);
+        game.ctx.strokeText(text2, 814, 19);
+        game.ctx.fillRect(270, 4, 540, 16);
+        let text1 = ""+this.score1;
+        game.ctx.fillStyle = this.tank1.colorCo;
+        game.ctx.fillText(text1, 266-ctx.measureText(text1).width, 19);
+        game.ctx.strokeText(text1, 266-ctx.measureText(text1).width, 19);
+        let score1Lenght = this.score1==0 && this.score2==0 ? 270 : ((this.score1)/(this.score1+this.score2))*540;
+        game.ctx.fillRect(270, 4, score1Lenght, 16);
+        game.ctx.strokeRect(270, 4, score1Lenght, 16);
+        game.ctx.strokeRect(270+score1Lenght, 4, 540-score1Lenght, 16);
+        //pause
         if (this.pause) {
-            game.ctx.fillStyle = "#000000";
-            game.ctx.font = "40px Georgia";
-            game.ctx.fillText("Tank Winner "+this.winner, 400, 300);
-            game.ctx.font = "20px Georgia";
-            game.ctx.fillText("F2 To Restart", 480, 330);
-            game.ctx.font = "20px Georgia";
-            game.ctx.fillText("S1: "+this.score1+" S2: "+this.score2, 480, 350);
-        } else {
-            game.ctx.fillStyle = "#000000";
-            game.ctx.font = "16px Georgia";
-            game.ctx.fillText("S1: "+this.score1+" S2: "+this.score2, 480, 600);
+            game.ctx.fillStyle = this.winner==1 ? this.tank1.colorCo : this.tank2.colorCo;
+            game.ctx.fillRect(405, 270, 270, 180);
+            game.ctx.strokeStyle = "#000000";
+            game.ctx.strokeRect(405, 270, 270, 180);
+            
+            game.ctx.fillStyle = this.invertColor(game.ctx.fillStyle);
+            game.ctx.font = "36px Georgia";
+            let text = "Tank Winner "+this.winner;
+            game.ctx.fillText(text, 540-(game.ctx.measureText(text).width/2), 310);
+            game.ctx.font = "24px Georgia";
+            text = "Tank1: "+this.score1;
+            game.ctx.fillText(text, 540-(game.ctx.measureText(text).width/2), 355);
+            text = "Tank2: "+this.score2;
+            game.ctx.fillText(text, 540-(game.ctx.measureText(text).width/2), 380);
+            game.ctx.font = "28px Georgia";
+            text = "F2 To Restart";
+            game.ctx.fillText(text, 540-(game.ctx.measureText(text).width/2), 430);
         }
     }
 

@@ -6,7 +6,7 @@ class Map {
         this.name = "";
         this.walls = [];
         this.background = "#FFFF00";
-        this.posTank = [new Vector(50, 20), new Vector(972, 648)];
+        this.posTank = [new Vector(50, 20), new Vector(922, 648)];
         this.angleTank = [0, 180];
     }
 

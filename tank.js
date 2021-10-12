@@ -63,14 +63,19 @@ class Tank {
         let y = -this.height/2;
         ctx.translate(this.vec.x-x, this.vec.y-y);
         ctx.rotate(this.angle.angle);
+        ctx.strokeStyle = "#000000";
         ctx.fillStyle = this.colorCh;
         ctx.fillRect(x, y, 80, 6);
+        ctx.strokeRect(x, y, 80, 6);
         ctx.fillStyle = this.colorCo;
         ctx.fillRect(x+6, y+6, 80, 40);
+        ctx.strokeRect(x+6, y+6, 80, 40);
         ctx.fillStyle = this.colorCh;
         ctx.fillRect(x, y+46, 80, 6);
+        ctx.strokeRect(x, y+46, 80, 6);
         ctx.fillStyle = this.colorCa;
         ctx.fillRect(x+68, y+20, 40, 12);
+        ctx.strokeRect(x+68, y+20, 40, 12);
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         if (this.boxColide) {
             ctx.strokeStyle = "#FF00FF";
